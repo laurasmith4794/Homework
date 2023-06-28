@@ -1,31 +1,23 @@
 import unittest
-from shop import greeting, purchased, retry_purchase, ThreeFailedAttempts
+from shop import purchase, retry_purchase, ThreeFailedAttempts
 
-class TestingGreeting(unittest.TestCase):
+class TestingPurchase(unittest.TestCase):
 
-    def test_invalid_item(self):
-        try:
-         greeting("Not a valid answer, please return and try again")
-        except ValueError as e:
-            assert str(e) == "Not a valid answer, please return and try again"
+    def test_purchase_with_enough_money(self):
+        self.assertEqual(True, purchase(item="top", balance=100))
 
-class TestingPurchased(unittest.TestCase):
+    def test_purchase_with_not_enough_money(self):
+        self.assertFalse(purchase(item="dress", balance=100))
 
-    def test_purchased_with_enough_money(self):
-        self.assertEqual(True, purchased(item="top", balance=100))
+    def test_purchase_with_negative_money(self):
+        self.assertEqual(False, purchase(item="top", balance=-100))
 
-    def test_purchased_with_not_enough_money(self):
-        self.assertFalse(purchased(item="dress", balance=100))
-
-    def test_purchased_with_negative_money(self):
-        self.assertEqual(False, purchased(item="top", balance=-100))
-
-    def test_purchased_with_just_enough_money(self):
-        self.assertTrue(purchased(item="dress", balance=150))
+    def test_purchase_with_just_enough_money(self):
+        self.assertTrue(purchase(item="dress", balance=150))
 
 class TestingRetryPurchase(unittest.TestCase):
 
-    def test_retrypurchased_too_many_attempts(self):
+    def test_retrypurchase_too_many_attempts(self):
         with self.assertRaises(ThreeFailedAttempts):
             retry_purchase(item="dress", balance=100, attempts=3),
 
