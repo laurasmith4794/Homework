@@ -45,3 +45,5 @@ while urls[current_url]: # O(log n) time, O(log n) space
 # The print and input functions are constant time and space operations.
 # The number of options for each url is fixed which is assumed because the urls dictionary is predefined.
 # Input size is measured by number of urls in dictionary, as the code depends on the dictionary for its functionality.
+
+# Marks (15/15)  

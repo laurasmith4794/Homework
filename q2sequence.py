@@ -22,3 +22,5 @@ print(num_in_seq(10))
 #print(num_in_seq(1))
 #print(num_in_seq(5))
 #print(num_in_seq(10))
+
+# Marks (12/12)

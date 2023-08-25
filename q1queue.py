@@ -31,3 +31,5 @@ print(list(queue))
 # The append and appendleft methods of the deque class take constant time O(1) to add an element to the right or left end of the deque.
 # The appendleft method also shifts all existing elements to the right by one position, which does not affect time complexity.
 # The list function takes linear time O(n) to convert an iterable object, such as a deque, into a list.
+
+# Marks (15/15) - Nice works, Good explanation on the time and space complexity.
